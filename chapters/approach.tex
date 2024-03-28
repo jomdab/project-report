@@ -42,7 +42,7 @@
 \subsection{เลือกข้อมูลที่จะนำไปใช้พัฒนาโปรแกรม}
 
 \enskip \enskip \enskip สุ่มอ่านประโยคในรายงานประจำปีของบริษัทที่เป็นผลลัพธ์ของโปรแกรมแบ่งประโยคที่เตรียมเอาไว้เพื่อเตรียมข้อมูลประโยคประเภทสิ่งแวดล้อม(Environment), 
-สังคม(Social), ธรรมาภิบาล(Governance) และประโยคที่ไม่เข้าประเภทใดเลย(Neutral)
+สังคม(Social), ธรรมาภิบาล(Governance) และประโยคที่ไม่เข้าประเภทใดเลย(Neutral) โดยใชเกณฑ์จากคู่มือของตลาดหลักทรัพย์แห่งประเทศไทย ~\cite{sus}
   
 
 \subsection{การทำความสะอาดข้อมูล}
@@ -54,7 +54,7 @@
 \section{การพัฒนาโมเดลการเรียนรู้ของเครื่อง}
 
 \enskip \enskip \enskip พัฒนาโมเดลการเรียนรู้ของเครื่องเพื่อนำมาทำนายชนิดของประโยคว่าเป็นหัวข้อใดในESGหรือไม่เกี่ยวข้องกับหัวข้อใดเลย 
-โดยทดลองกับโมเดลหลายแบบคือ LSTM, Bert, Distilbert, Albert-V2, Electar-base, Electar-small และRobertaแล้วเลือกโมเดลที่ดีที่สุดโดยวัดประสิทธิภาพจากค่า Accuracy
+โดยทดลองกับโมเดลหลายแบบซึ่งโมเดลที่เลือกได้แรงบันดาลใจมาจากงานวิจัย BERT goes sustainable : an NLP approach to ESG financing~\cite{torroni2021bert} ได้แก่โมเดล Bert~\cite{devlin2018bert}, Distilbert~\cite{sanh2019distilbert}, Albert-V2~\cite{lan2019albert}, Electar-base~\cite{clark2020electra}, Electar-small~\cite{clark2020electra}, Roberta~\cite{liu2019roberta}และใช้ LSTM~\cite{staudemeyer2019understanding} เป็นโมเดลพื้นฐานการวัดผลแล้วเลือกโมเดลที่ดีที่สุดโดยวัดประสิทธิภาพจากค่า Accuracy
 
 
 \section{การพัฒนาโปรแกรมอ่านรายงานประจำปีของบริษัท}
