@@ -1,27 +1,91 @@
 \chapter{The first appendix}
 
-Text for the first appendix goes here.
+% Text for the first appendix goes here.
 
-\section{Appendix section}
+% \section{Appendix section}
 
-Text for a section in the first appendix goes here.
+% Text for a section in the first appendix goes here.
 
-test ทดสอบฟอนต์ serif ภาษาไทย
+% test ทดสอบฟอนต์ serif ภาษาไทย
 
-\textsf{test ทดสอบฟอนต์ sans serif ภาษาไทย}
+% \textsf{test ทดสอบฟอนต์ sans serif ภาษาไทย}
 
-\verb+test ทดสอบฟอนต์ teletype ภาษาไทย+
+% \verb+test ทดสอบฟอนต์ teletype ภาษาไทย+
 
-\texttt{test ทดสอบฟอนต์ teletype ภาษาไทย}
+% \texttt{test ทดสอบฟอนต์ teletype ภาษาไทย}
 
-\textbf{ตัวหนา serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}
+% \textbf{ตัวหนา serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}
 
-\textit{ตัวเอียง serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}
+% \textit{ตัวเอียง serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}
 
-\textbf{\textit{ตัวหนาเอียง serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}}
+% \textbf{\textit{ตัวหนาเอียง serif ภาษาไทย \textsf{sans serif ภาษาไทย} \texttt{teletype ภาษาไทย}}}
 
-\url{https://www.example.com/test_ทดสอบ_url}
+% \url{https://www.example.com/test_ทดสอบ_url}
 
 \chapter{\ifenglish Manual\else คู่มือการใช้งานระบบ\fi}
 
-Manual goes here.
+\section{คู่มือการดาวน์โหลดโปรแกรม}
+
+\enskip \enskip \enskip การใช้งานโปรแกรมขั้นแรก 
+ผู้สนใจทดลองใช้โปรแกรมสามารถค้นหาและดาวน์โหลดโปรแกรมได้ที่ 
+https://github.com/Gravitumn/ESG-classification 
+
+
+\section{คู่มือการฝึกสอนโมเดลเพิ่มเติม}
+
+\enskip \enskip \enskip ผู้ที่มีความสนใจจะฝึกสอนโมเดลเพิ่มเติมสามารถทำการเรียกใช้ฟังก์ชัน 
+Train\_model ซึ่งอยู่ภายในไฟล์ Train.py ได้ โดยมี Arguments ที่สามารถส่งเข้าไปในฟังก์ชันได้ดังนี้
+
+
+\begin{enumerate} 
+    \item
+    bert\_model เป็น argument ที่ใช้ในการระบุโมเดลที่ใช้ในการฝึกสอนโดยใช้ file path ในการระบุ หากต้องการใช้โมเดลที่ฝึกสอนโดยผู้จัดทำ สามารถใช้ไฟล์ model/albert2 ซึ่งเตรียมไว้ให้ในโฟลเดอร์ได้เลย
+    แต่หากต้องการใช้โมเดลชนิดอื่นก็สามารถใส่ path ดังตัวอย่างด้านล่างได้เช่นกัน
+    \item
+    tokenizer เป็นการระบุ tokenizer ที่จะใช้ในการแบ่งประโยคซึ่งโดยปกติจะใช้เป็น
+    tokenizer ของโมเดลนั้นๆ ดังตัวอย่างด้านล่าง
+    \item
+    device เป็นการระบุอุปกรณ์ที่ใช้ในการฝึกสอน ตามตัวอย่างด้านล่าง
+    \item
+    file\_path ของ dataset ที่เราจัดเตรียมไว้ 
+    โดยไม่จำเป็นต้องแบ่ง Train/test เนื่องจาก จะมีให้ระบุเป็น Argument 
+    \item
+    batch\_size เป็นพารามิเตอร์ของการฝึกสอนโมเดลที่ช่วยให้โมเดลเรียนรู้ได้ดีมากขึ้นหากปรับได้อย่างเหมาะสม 
+    นอกจากนี้การปรับให้มี batch\_size ที่สูงเกินไปยังส่งผลให้หน่วยความจำของคอมพิวเตอร์ไม่เพียงพออีกด้วย โดยมี default batch size = 8
+    \item
+    Shuffle เป็นพารามิเตอร์ที่ใช้ระบุว่าต้องการสับเปลี่ยนการเรียงลำดับของ dataset 
+    หรือไม่ซึ่งมีค่า default เป็น True และแนะนำให้ตั้งค่าเป็น True เสมอ
+    \item
+    lr หรือ learning\_rate เป็นพารามิเตอร์ที่ใช้ในการระบุ 
+    learning rate ในการเรียนรู้ของคอมพิวเตอร์ มีค่า default = 1e-5
+    \item
+    num\_epochs เป็นพารามิเตอร์ที่ใช้ในการระบุว่าโมเดลจะได้รับการฝึกสอนเป็นจำนวนกี่ครั้ง 
+    โดยมีค่า default = 100
+    \item
+    T\_0 เป็นพารามิเตอร์สำหรับ Cosine annealing warm restart โดย T\_0 จะเป็นตัวกำหนดว่าจะให้โมเดลทำการเรียนรู้กี่ epoch ก่อนจะเกิดการ restart ซึ่งในระหว่างนั้นจะมีการปรับ learning rate ให้ต่ำลงและเมื่อเกิดการ restart จะทำให้ learning rate 
+    กลับมาเท่ากับค่าเริ่มต้น ช่วยให้โมเดลสามารถเรียนรู้ต่อไปได้ มีค่า default= 2
+    \item
+    T\_mult เป็นพารามิเตอร์สำหรับ Cosine annealing warm restart เป็นตัวคูณซึ่งใช้ในการกำหนดจำนวนรอบก่อนจะเริ่ม restart อีกครั้งหนึ่ง ยกตัวอย่างเช่นหาก T\_mult = 2 และ T\_0 = 10 เมื่อเกิดการ restart จะต้องรออีก 20 ครั้งเพื่อจะ restart และหลังจากนั้นจะเพิ่มเป็น 40 ครั้ง 
+    และ 80 ครั้งจนกว่าจะพบเงื่อนไขการจบการฝึกสอน โดยมีค่า default = 2
+    \item
+    eta\_min เป็นพารามิเตอร์สำหรับกำหนดว่า learning\_rate สามารถลดลงต่ำสุดได้มากเพียงใด 
+    เพื่อไม่ให้ learning\_rate ลดต่ำจนเกินไป โดยมีค่า default = 1e-6
+    \item
+    model\_save\_path เป็น argument สำหรับระบุ file path ที่จะใช้ในการบันทึกโมเดลเมื่อจบการฝึกสอน 
+    โดยมี default path เป็น /model/trained\_model
+    \item
+    early\_stop\_epoch เป็น argument สำหรับระบุจำนวนรอบสูงสุดที่ต้องการให้โมเดลทำการฝึกสอน
+    โดยมีค่าตั้งต้น = 8 รอบ
+    \item
+    return\_result เป็น argument สำหรับระบุว่าผู้ใช้งานต้องการผลลัพธ์จากการฝึกสอนหรือไม่ โดยผลลัพธ์เหล่านี้จะเป็น confusion matrix ที่แสดงการทำนายประโยคของโมเดล 
+    และกราฟ accuracy ในแต่ละ epoch โดยมีค่า default = False
+    \item
+    test\_size เป็น argument สำหรับการทำ train\-test\-split 
+    โดยมีค่าเริ่มต้น = 0.1 ซึ่งเป็นการระบุว่าใช้ test set 10\% ของ dataset
+    \item
+    random\_state เป็น argument สำหรับใช้ระบุว่าจะทำการ train\-test\-split 
+    ที่ random\_state เท่าใด โดยมีค่าตั้งต้นเป็น 69
+\end{enumerate}
+
+
+
